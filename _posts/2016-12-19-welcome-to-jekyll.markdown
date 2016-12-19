@@ -1,6 +1,6 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
+layout: posts
+title:  "Welcome to Allen's blog!"
 date:   2016-12-19 22:20:59 +0800
 categories: jekyll update
 ---
