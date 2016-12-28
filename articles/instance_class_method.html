@@ -1,3 +1,58 @@
-类方法，是“该类的单例类”的实例方法
+class Object  
+  def abc  
+    p "instance abc"  
+  end  
+    
+  def self.abc  
+    p "class abc"  
+  end  
+end  
+  
+obj=Object.new  
+  
+obj.abc #instance abc  
+Object.abc #class abc
 
-实例方法的查找过程只查找类的继承层次，而不会查找单例类
+类方法只有类本身可以调用，在ruby中，类方法是一种特殊的单例方法
+
+    class C  　 # 定义类C
+      def a_method    # 定义实例方法a_method
+        puts "C#a_method"  　　　
+      end  
+      
+      def self.a_class_method   # 定义类方法a_class_method
+        puts "C#a_class_method"  
+      end  
+    end  
+      
+    class D < C  # 定义类D，继承自类C
+        
+    end  
+      
+    obj = D.new  # 创建类D的实例对象obj
+    obj.a_method  
+    puts D.a_class_method  
+      
+      
+    class Object  
+      def eigenclass  
+        class << self  
+          self  
+        end  
+      end  
+    end  
+      
+    class << obj  
+      def a_singleton_method  # 给obj定义单例方法a_singleton_method
+        puts 'obj#a_singleton_method'  
+      end  
+    end  
+      
+    puts obj.a_singleton_method  
+
+
+
+参考资料
+《ruby元编程》
+
+created at 2016-11-28, updated at 2016-11-28
